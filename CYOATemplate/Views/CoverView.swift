@@ -25,7 +25,7 @@ struct CoverView: View {
             } else {
                 
                 // Show the cover
-                Text("murder of idk yet")
+                Text("Secrets in the Halls")
                     .font(.largeTitle)
                 
                 Button {
@@ -34,7 +34,7 @@ struct CoverView: View {
                         book.beginReading()
                     }
                 } label: {
-                    Text("Begin reading")
+                    Text("Begin The Adventure!")
                 }
                 .buttonStyle(.borderedProminent)
             }

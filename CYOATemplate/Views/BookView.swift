@@ -73,6 +73,14 @@ struct BookView: View {
                     }
 
                 }
+                
+                ToolbarItem(placement: .automatic) {
+                    Image(systemName: "arrow.circlepath")
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            book.showCoverPage()
+                        }
+                }
 
             }
             // Show the statistics view
