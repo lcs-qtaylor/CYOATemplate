@@ -39,7 +39,7 @@ struct SettingsView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Statistics")
+            .navigationTitle("Settings")
             // Toolbar to show buttons for various actions
             .toolbar {
                 

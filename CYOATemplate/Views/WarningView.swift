@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct WarningView: View {
+    
+    // MARK: Stored properties
+    
+    // Access the book state through the environment
+    @Environment(BookStore.self) var book
+    
+    // MARK: Computed properties
     var body: some View {
         
         VStack (spacing: 45){
@@ -29,6 +36,11 @@ struct WarningView: View {
                 .foregroundStyle(.blue)
                 .overlay(Text("Yes, Bring it on!").foregroundStyle(.white))
                 .frame(width: 200, height: 35)
+                .onTapGesture {
+                    withAnimation {
+                        book.beginReading()
+                    }
+                }
                 
                 Link("No, I want my mommy!", destination: URL(string: "https://media0.giphy.com/media/l0MYDItBlfs4FX1SM/200w.gif?cid=6c09b952fhzn38ynk2bn5u06gr32gxwa3og8xec9pgvjad35&ep=v1_gifs_search&rid=200w.gif&ct=g")!)
                     .buttonStyle(.borderedProminent)
