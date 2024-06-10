@@ -45,6 +45,7 @@ struct CoverView: View {
                     .font(Font.custom("Chalkduster", size: 20))
                     .buttonStyle(.borderedProminent)
                     
+                   
                 }
                 
             }
