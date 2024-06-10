@@ -64,6 +64,8 @@ struct EdgesView: View {
                             )
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(.black)
+                            .font(Font.custom("COPPERPLATE", size: 15))
+
                             
                             Spacer()
                             
