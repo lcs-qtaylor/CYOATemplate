@@ -31,7 +31,7 @@ struct CoverView: View {
                     
                     // Show the cover
                     Text("Secrets in the Halls")
-                        .font(Font.custom("Chalkduster", size: 50))
+                        .font(Font.custom("Chalkduster", size: 49))
                         .foregroundColor(Color.red)
                     
                     Button("Begin The Adventure!") {
