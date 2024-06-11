@@ -16,41 +16,30 @@ struct CoverView: View {
     
     // MARK: Computed properties
     var body: some View {
-        ZStack {
+         VStack {
             
-            LinearGradient(colors: [.black, .red], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack {
+            if book.isNotReadyToRead {
                 
-                if book.isNotReadyToRead {
-                    
-                    ProgressView()
-                    
-                } else {
-                    
-                    // Show the cover
-                    Text("Secrets in the Halls")
-                        .font(Font.custom("Chalkduster", size: 50))
-                        .foregroundColor(Color.red)
-                    
-                    Button("Begin The Adventure!") {
-                        // Animate page changes (fade)
-                        withAnimation {
-                            book.beginReading()
-                        }
+                ProgressView()
+                
+            } else {
+                
+                // Show the cover
+                Text("Secrets in the Halls")
+                    .font(Font.custom("Chalkduster", size: 50))
+                    .foregroundColor(Color.red)
+                
+                Button("Begin The Adventure!") {
+                    // Animate page changes (fade)
+                    withAnimation {
+                        book.beginReading()
                     }
-                    .tint(.red)
-                    .foregroundStyle(.black)
-                    .font(Font.custom("Chalkduster", size: 20))
-                    .buttonStyle(.borderedProminent)
-                    
-                   
                 }
-                
+                .buttonStyle(.borderedProminent)
             }
-            .padding()
+            
         }
+        .padding()
         
     }
 }

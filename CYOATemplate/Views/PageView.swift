@@ -25,75 +25,68 @@ struct PageView: View {
     // MARK: Computed properties
     var body: some View {
         
-        ZStack {
-            
-            LinearGradient(colors: [.black, .red], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(spacing: 10) {
-                                              
-                    // Has the page loaded yet?
-                    if let page = viewModel.page {
-                        
-                        // DEBUG
-                        let _ = print("Text for this page is:\n\n\(page.narrative)\n\n")
-                        let _ = print("Image for this page is:\n\n\(page.image ?? "(no image for this page)")\n\n")
+        ScrollView {
+            VStack(spacing: 10) {
+                                          
+                // Has the page loaded yet?
+                if let page = viewModel.page {
+                    
+                    // DEBUG
+                    let _ = print("Text for this page is:\n\n\(page.narrative)\n\n")
+                    let _ = print("Image for this page is:\n\n\(page.image ?? "(no image for this page)")\n\n")
 
-                        Text(
-                            try! AttributedString(
-                                markdown: page.narrative,
-                                options: AttributedString.MarkdownParsingOptions(
-                                    interpretedSyntax: .inlineOnlyPreservingWhitespace
-                                )
+                    Text(
+                        try! AttributedString(
+                            markdown: page.narrative,
+                            options: AttributedString.MarkdownParsingOptions(
+                                interpretedSyntax: .inlineOnlyPreservingWhitespace
                             )
                         )
-                        .font(Font.custom("Chalkduster", size: 20))
-                        .foregroundStyle(.red)
-
-                        if let image = page.image {
-                            
-                            Image(image)
-                                .resizable()
-                                .scaledToFit()
-                                .border(.black, width: 1)
-                                .padding(.vertical, 10)
-
-                        }
-
-                        Divider()
+                    )
+                        .font(.title2)
+                    
+                    if let image = page.image {
                         
-                        if page.isAnEndingOfTheStory {
+                        Image(image)
+                            .resizable()
+                            .scaledToFit()
+                            .border(.black, width: 1)
+                            .padding(.vertical, 10)
 
-                            // Page is an ending, so tell the user,
-                            // and allow book to be re-started
-                            Text("The End")
-                                .bold()
-                                .onTapGesture {
-                                    book.showCoverPage()
-                                }
+                    }
 
-                        } else {
-                            
-                            // Page is not an ending, so show available edges
-                            EdgesView(
-                                viewModel: EdgesViewModel(book: book)
-                            )
-                            
-                        }
-                        
-                        
-                        Spacer()
+                    Divider()
+                    
+                    if page.isAnEndingOfTheStory {
+
+                        // Page is an ending, so tell the user,
+                        // and allow book to be re-started
+                        Text("The End")
+                            .bold()
+                            .onTapGesture {
+                                book.showCoverPage()
+                            }
 
                     } else {
                         
-                        // Page still loading from database
-                        ProgressView()
+                        // Page is not an ending, so show available edges
+                        EdgesView(
+                            viewModel: EdgesViewModel(book: book)
+                        )
+                        
                     }
                     
+                    
+                    Spacer()
+
+                } else {
+                    
+                    // Page still loading from database
+                    ProgressView()
                 }
-                .padding()
+                
             }
+            .padding()
         }
 
     }
