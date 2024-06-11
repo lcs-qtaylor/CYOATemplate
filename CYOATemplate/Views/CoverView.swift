@@ -16,7 +16,7 @@ struct CoverView: View {
     
     // MARK: Computed properties
     var body: some View {
-        VStack {
+         VStack {
             
             if book.isNotReadyToRead {
                 
@@ -25,16 +25,15 @@ struct CoverView: View {
             } else {
                 
                 // Show the cover
-                Text("murder of idk yet")
-                    .font(.largeTitle)
+                Text("Secrets in the Halls")
+                    .font(Font.custom("Chalkduster", size: 50))
+                    .foregroundColor(Color.red)
                 
-                Button {
+                Button("Begin The Adventure!") {
                     // Animate page changes (fade)
                     withAnimation {
                         book.beginReading()
                     }
-                } label: {
-                    Text("Begin reading")
                 }
                 .buttonStyle(.borderedProminent)
             }
