@@ -24,23 +24,14 @@ struct CoverView: View {
                 
             } else {
                 
-
-                if book.isNotReadyToRead {
-                    
-                    ProgressView()
-                    
-                } else {
-                    
-                    // Show the cover
-                    Text("Secrets in the Halls")
-                        .font(Font.custom("Chalkduster", size: 49))
-                        .foregroundColor(Color.red)
-                    
-                    Button("Begin The Adventure!") {
-                        // Animate page changes (fade)
-                        withAnimation {
-                            book.beginReading()
-                  
+                // Show the cover
+                Text("murder of idk yet")
+                    .font(.largeTitle)
+                
+                Button {
+                    // Animate page changes (fade)
+                    withAnimation {
+                        book.beginReading()
                     }
                 } label: {
                     Text("Begin reading")
