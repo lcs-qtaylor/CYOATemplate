@@ -47,7 +47,6 @@
 		96817B0E2C10B29B0085F22D /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B0D2C10B29B0085F22D /* Realtime */; };
 		96817B102C10B29B0085F22D /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B0F2C10B29B0085F22D /* Storage */; };
 		96817B122C10B29B0085F22D /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B112C10B29B0085F22D /* Supabase */; };
-		B9C553922C133E3B008347BF /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C553912C133E3B008347BF /* WarningView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,7 +88,6 @@
 		81C198BE2A251B4D0047A4B3 /* Ending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ending.swift; sourceTree = "<group>"; };
 		81C784AA2A28AD0B001BC867 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		81C784AE2A28B4E7001BC867 /* EdgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesView.swift; sourceTree = "<group>"; };
-		B9C553912C133E3B008347BF /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +243,6 @@
 				81C784AA2A28AD0B001BC867 /* PageView.swift */,
 				812F51382C0D01A300C1A270 /* StatsView.swift */,
 				812F513A2C0D06C900C1A270 /* SettingsView.swift */,
-				B9C553912C133E3B008347BF /* WarningView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C198BB2A251B1B0047A4B3 /* Page.swift in Sources */,
-				B9C553922C133E3B008347BF /* WarningView.swift in Sources */,
 				81C198B92A251AE00047A4B3 /* BookView.swift in Sources */,
 				81C198BD2A251B2B0047A4B3 /* Edge.swift in Sources */,
 				812F51052C0C9FAD00C1A270 /* Supabase.swift in Sources */,

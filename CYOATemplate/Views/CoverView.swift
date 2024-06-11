@@ -16,13 +16,15 @@ struct CoverView: View {
     
     // MARK: Computed properties
     var body: some View {
-        ZStack {
+        VStack {
             
-            LinearGradient(colors: [.black, .red], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack {
+            if book.isNotReadyToRead {
                 
+                ProgressView()
+                
+            } else {
+                
+
                 if book.isNotReadyToRead {
                     
                     ProgressView()
@@ -38,19 +40,16 @@ struct CoverView: View {
                         // Animate page changes (fade)
                         withAnimation {
                             book.beginReading()
-                        }
+                  
                     }
-                    .tint(.red)
-                    .foregroundStyle(.black)
-                    .font(Font.custom("Chalkduster", size: 20))
-                    .buttonStyle(.borderedProminent)
-                    
-                   
+                } label: {
+                    Text("Begin reading")
                 }
-                
+                .buttonStyle(.borderedProminent)
             }
-            .padding()
+            
         }
+        .padding()
         
     }
 }
