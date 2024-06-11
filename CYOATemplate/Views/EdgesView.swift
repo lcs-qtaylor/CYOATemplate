@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct EdgesView: View {
-
+    
     // MARK: Stored properties
-
+    
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
@@ -27,7 +27,7 @@ struct EdgesView: View {
     
     // Whether the quiz question was answered correctly
     @State private var quizResult: QuizResult = .quizNotActive
-
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -35,7 +35,7 @@ struct EdgesView: View {
             
             // Have edges loaded yet?
             if let edges = viewModel.edges {
-
+                
                 // Are there no edges for this page?
                 // NOTE: This should not happen if database is populated correctly.
                 if edges.isEmpty {
@@ -48,13 +48,12 @@ struct EdgesView: View {
                                 book.showCoverPage()
                             }
                     }
-
+                    
                 } else {
                     
                     // Show the edges for this page
                     ForEach(edges) { edge in
                         HStack {
-                            Spacer()
                             Text(
                                 try! AttributedString(
                                     markdown: edge.prompt,
@@ -63,7 +62,26 @@ struct EdgesView: View {
                                     )
                                 )
                             )
-                                .multilineTextAlignment(.trailing)
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(.black)
+                            .font(Font.custom("COPPERPLATE", size: 15))
+
+                            
+                            Spacer()
+                            
+                            Image(systemName: "arrow.right")
+                                .foregroundStyle(.black)
+                        }
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.red)
+                                .frame(width: .infinity, height: 50)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                            
                         }
                         .onTapGesture {
                             
@@ -80,15 +98,15 @@ struct EdgesView: View {
                                     
                                     // Question answered correctly, allow reader to move on
                                     book.read(edge.toPage)
-
+                                    
                                 }
                                 
                             } else {
-
+                                
                                 // Move to page edge connects to
                                 // (No prompt for quiz on pages that have multiple options)
                                 book.read(edge.toPage)
-
+                                
                             }
                             
                             // DEBUG
@@ -97,13 +115,13 @@ struct EdgesView: View {
                         }
                     }
                 }
-
+                
             } else {
                 
                 // Edges are loading from database
                 ProgressView()
             }
-                
+            
         }
         // Show the quiz view
         .sheet(isPresented: $showingQuizView) {
@@ -113,8 +131,8 @@ struct EdgesView: View {
             )
             .presentationDetents([.medium, .fraction(0.33)])
         }
-
-
+        
+        
     }
 }
 

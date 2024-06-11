@@ -32,12 +32,14 @@ struct BookView: View {
 
                 if book.isBeingRead {
                     
-                    HStack {
-                        Text("\(book.currentPageId!)")
-                            .font(.largeTitle)
-                        Spacer()
-                    }
-                    .padding()
+//                    HStack {
+//                        Text("\(book.currentPageId!)")
+//                            .font(.largeTitle)
+//                        Spacer()
+//                    }
+//                    .padding()
+                    
+                   let _ = print("Page number is: \(book.currentPageId ?? -99)")
                     
                     PageView(
                         viewModel: PageViewModel(book: book)
@@ -55,21 +57,33 @@ struct BookView: View {
             .toolbar {
                 
                 // Show the statistics view
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        showingStatsView = true
-                    } label: {
-                        Image(systemName: "chart.pie.fill")
-                    }
-
-                }
+//                ToolbarItem(placement: .automatic) {
+//                    Button {
+//                        showingStatsView = true
+//                    } label: {
+//                        Image(systemName: "chart.pie.fill")
+//                        
+//                    }
+//
+//                }
                 
                 // Show the settings view
+                
+                
+                ToolbarItem(placement: .automatic) {
+                    Image(systemName: "arrow.left.circle")
+                        .foregroundColor(.red)
+                        .onTapGesture {
+                            book.showCoverPage()
+                        }
+                }
+                
                 ToolbarItem(placement: .automatic) {
                     Button {
                         showingSettingsView = true
                     } label: {
                         Image(systemName: "gear")
+                            .foregroundColor(.red)
                     }
 
                 }

@@ -36,10 +36,12 @@ struct SettingsView: View {
                     }
                 }
                 
+                
+                
                 Spacer()
             }
             .padding()
-            .navigationTitle("Statistics")
+            .navigationTitle("Settings")
             // Toolbar to show buttons for various actions
             .toolbar {
                 
@@ -56,9 +58,6 @@ struct SettingsView: View {
             }
 
         }
-        // Dark / light mode toggle
-        .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
-
     }
 }
 
