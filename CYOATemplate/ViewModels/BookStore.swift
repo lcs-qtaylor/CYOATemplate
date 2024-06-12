@@ -20,7 +20,7 @@ class BookStore: Observable {
     
     // What is the current page being read?
     var currentPageId: Int?
-    
+    var achievementList: [Achievement] = []
     // What is the first page of the book?
     private var firstPageId: Int?
     
@@ -209,6 +209,7 @@ class BookStore: Observable {
 
     }
     
+    
     // Return the details of the current page
     func getEdgesForCurrentPage() async throws -> [Edge]? {
         
@@ -221,6 +222,26 @@ class BookStore: Observable {
                 .value
             
             return edges
+                
+        } catch {
+            
+            debugPrint(error)
+            
+            return nil
+        }
+        
+    }
+    func getAchievementsForCurrentPage() async throws -> [Achievement]? {
+        
+        do {
+            let achievements: [Achievement] = try await supabase
+                .from("achievement")
+                .select()
+                .eq("page_id", value: self.currentPageId)
+                .execute()
+                .value
+            
+            return achievements
                 
         } catch {
             

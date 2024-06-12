@@ -13,7 +13,7 @@ struct AppEntryView: View {
     
     // Keeps track of whether the user has been authenticated
     @State var isAuthenticated = false
-    
+   
     // MARK: Computed properties
     var body: some View {
         Group {

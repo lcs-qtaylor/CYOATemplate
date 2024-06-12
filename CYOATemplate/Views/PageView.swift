@@ -21,7 +21,7 @@ struct PageView: View {
     // (which is fed to the initializer of PageViewModel)
     // then PageView will be re-loaded, updating the text
     let viewModel: PageViewModel
-    
+
     // MARK: Computed properties
     var body: some View {
         
@@ -58,9 +58,11 @@ struct PageView: View {
                     Divider()
                     
                     if page.isAnEndingOfTheStory {
-
+                      
                         // Page is an ending, so tell the user,
                         // and allow book to be re-started
+                        
+                        
                         Text("The End")
                             .bold()
                             .onTapGesture {
