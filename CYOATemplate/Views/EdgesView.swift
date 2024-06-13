@@ -63,7 +63,23 @@ struct EdgesView: View {
                                     )
                                 )
                             )
-                                .multilineTextAlignment(.trailing)
+                            .multilineTextAlignment(.trailing)
+                            .foregroundStyle(.black)
+                            .font(Font.custom("COPPERPLATE", size: 15))
+                            
+                            Spacer()
+                            
+                            Image(systemName: "arrow.right")
+                                .foregroundStyle(.black)
+                        }
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.red)
+                                .frame(width: .infinity, height: 50)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 2))
                         }
                         .onTapGesture {
                             
