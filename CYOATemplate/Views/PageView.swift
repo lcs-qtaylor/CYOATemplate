@@ -43,8 +43,8 @@ struct PageView: View {
                             )
                         )
                     )
-                        .font(.title2)
-                    
+                    .font(.system(size: CGFloat(book.reader.fontSize)))
+                      
                     if let image = page.image {
                         
                         Image(image)

@@ -35,6 +35,14 @@ struct SettingsView: View {
                         Image(systemName: "moonphase.first.quarter")
                     }
                 }
+                Stepper(value: $book.reader.fontSize, in: 10...30) {
+                                   Label {
+                                       Text("Font Size: \(book.reader.fontSize)")
+                                   } icon: {
+                                       Image(systemName: "textformat.size")
+                                   }
+                               }
+                               .padding(.top, 20)
                 
                 Spacer()
             }
