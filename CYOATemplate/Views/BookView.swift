@@ -54,14 +54,13 @@ struct BookView: View {
             // Toolbar to show buttons for various actions
             .toolbar {
                 
-                // Show the statistics view
+                // Button to return to the cover page
                 ToolbarItem(placement: .automatic) {
-                    Button {
-                        showingStatsView = true
-                    } label: {
-                        Image(systemName: "chart.pie.fill")
-                    }
-
+                    Image(systemName: "arrow.left.circle")
+                        .foregroundColor(.red)
+                        .onTapGesture {
+                            book.showCoverPage()
+                        }
                 }
                 
                 // Show the settings view
