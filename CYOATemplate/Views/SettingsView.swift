@@ -42,7 +42,7 @@ struct SettingsView: View {
                 // Dropdown picker for font size
                 HStack {
                     Text("Font Size:")
-                    Picker("Font Size", selection: $book.reader.fontSize) {
+                    Picker("Size", selection: $book.reader.fontSize) {
                         ForEach(fontSizes, id: \.self) { size in
                             Text("\(size)").tag(size)
                         }
