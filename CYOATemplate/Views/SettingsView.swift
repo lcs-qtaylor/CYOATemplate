@@ -17,6 +17,9 @@ struct SettingsView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
+    // Available font sizes
+    let fontSizes: [Int] = Array(10...50)
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -35,19 +38,24 @@ struct SettingsView: View {
                         Image(systemName: "moonphase.first.quarter")
                     }
                 }
-                Stepper(value: $book.reader.fontSize, in: 10...30) {
-                                   Label {
-                                       Text("Font Size: \(book.reader.fontSize)")
-                                   } icon: {
-                                       Image(systemName: "textformat.size")
-                                   }
-                               }
-                               .padding(.top, 20)
+                
+                // Dropdown picker for font size
+                HStack {
+                    Text("Font Size:")
+                    Picker("Font Size", selection: $book.reader.fontSize) {
+                        ForEach(fontSizes, id: \.self) { size in
+                            Text("\(size)").tag(size)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .frame(maxWidth: 100) // Adjust width as needed
+                }
+                .padding(.top, 10)
                 
                 Spacer()
             }
             .padding()
-            .navigationTitle("Statistics")
+            .navigationTitle("Settings")
             // Toolbar to show buttons for various actions
             .toolbar {
                 
@@ -66,7 +74,6 @@ struct SettingsView: View {
         }
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
-
     }
 }
 
