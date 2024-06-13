@@ -69,6 +69,7 @@ struct BookView: View {
                         showingSettingsView = true
                     } label: {
                         Image(systemName: "gear")
+                            .foregroundColor(.red)
                     }
 
                 }
