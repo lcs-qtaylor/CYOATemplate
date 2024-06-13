@@ -11,18 +11,16 @@ import SwiftUI
 struct BookView: View {
     
     // MARK: Stored properties
-    
     // Tracks overall state as the reader reads the book
     @Environment(BookStore.self) var book
-    
     // Whether the statistics view is being shown right now
     @State private var showingStatsView = false
 
     // Whether the settings view is being shown right now
     @State private var showingSettingsView = false
-    
     // Track when app is foregrounded, backgrounded, or made inactive
     @Environment(\.scenePhase) var scenePhase
+
 
     // MARK: Computed properties
     var body: some View {
@@ -51,7 +49,7 @@ struct BookView: View {
             }
             // Add our object to track state into the environment
             // so it is accessible to the other views in the app
-            .environment(book)
+//            .environment(book)
             // Toolbar to show buttons for various actions
             .toolbar {
                 
