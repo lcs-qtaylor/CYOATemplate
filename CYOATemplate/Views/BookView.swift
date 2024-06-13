@@ -32,12 +32,12 @@ struct BookView: View {
 
                 if book.isBeingRead {
                     
-                    HStack {
-                        Text("\(book.currentPageId!)")
-                            .font(.largeTitle)
-                        Spacer()
-                    }
-                    .padding()
+//                    HStack {
+//                        Text("\(book.currentPageId!)")
+//                            .font(.largeTitle)
+//                        Spacer()
+//                    }
+//                    .padding()
                     
                     PageView(
                         viewModel: PageViewModel(book: book)
