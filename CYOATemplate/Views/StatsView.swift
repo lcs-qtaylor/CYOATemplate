@@ -25,7 +25,7 @@ struct StatsView: View {
                     } else {
                         List(achievements) { achievement in
                             VStack(alignment: .leading) {
-                                Text(achievement.name)
+                                Text(achievement.achievementName)
                                     .font(.headline)
                                 Text(achievement.description)
                                     .font(.subheadline)

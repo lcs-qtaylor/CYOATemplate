@@ -10,13 +10,13 @@ import Foundation
 struct Achievement: Identifiable, Codable {
     var id: Int
     var pageId: Int
-    var name: String
-    var description: String
+    var achievementName: String
+    var achievementDescription: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case pageId = "page_id"
-        case name
-        case description
+        case achievementName = "achievement_Name"
+        case achievementDescription = "achievement_Description"
     }
 }

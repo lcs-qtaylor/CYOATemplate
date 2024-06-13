@@ -17,12 +17,11 @@ class BookStore: Observable {
     
     // Preserves preferences and state for the current reader of this book
     var reader: Reader
-//    var achievement: Achievement?
+    var achievement: Achievement?
     // What is the current page being read?
     var currentPageId: Int?
-//    var pageId: Int?
-//    var achievementList: [Achievement] = []
-    // What is the first page of the book?
+    var pageId: Int?
+
     private var firstPageId: Int?
     
     // MARK: Computed properties
@@ -73,7 +72,7 @@ class BookStore: Observable {
     // MARK: Initializer(s)
     init() {
         self.reader = Reader(prefersDarkMode: false)
-//        self.achievement = nil
+        self.achievement = nil
         // Restore state for this user from prior sesssion, if possible
         Task {
             try await self.restoreState()
@@ -190,7 +189,6 @@ class BookStore: Observable {
         
         // Save current page
         self.reader.lastPageReadId = self.currentPageId
-//        self.achievement = Achievement
         // Update in the database
         Task {
             
@@ -235,7 +233,7 @@ class BookStore: Observable {
     func getAchievementsForCurrentPage() async throws -> [Achievement]? {
         
         do {
-            let achievements: [Achievement]? = try await supabase
+            let achievements: [Achievement] = try await supabase
                 .from("achievement")
                 .select()
                 .eq("page_id", value: self.currentPageId)
