@@ -13,7 +13,7 @@ struct BookView: View {
     // MARK: Stored properties
     
     // Tracks overall state as the reader reads the book
-    @State private var book = BookStore()
+    @Environment(BookStore.self) var book
     
     // Whether the statistics view is being shown right now
     @State private var showingStatsView = false
@@ -26,6 +26,7 @@ struct BookView: View {
 
     // MARK: Computed properties
     var body: some View {
+        
         NavigationStack {
             
             VStack {
