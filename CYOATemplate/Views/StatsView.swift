@@ -27,7 +27,7 @@ struct StatsView: View {
                             VStack(alignment: .leading) {
                                 Text(achievement.achievementName)
                                     .font(.headline)
-                                Text(achievement.description)
+                                Text(achievement.achievementDescription)
                                     .font(.subheadline)
                             }
                             .padding()
