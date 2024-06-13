@@ -71,8 +71,7 @@ class BookStore: Observable {
     
     // MARK: Initializer(s)
     init() {
-        self.reader = Reader(prefersDarkMode: false)
-        
+        self.reader = Reader(prefersDarkMode: false, fontSize: 14)
         // Restore state for this user from prior sesssion, if possible
         Task {
             try await self.restoreState()
@@ -124,7 +123,7 @@ class BookStore: Observable {
                 
                 do {
 
-                    let reader = Reader(prefersDarkMode: false)
+                    let reader = Reader(prefersDarkMode: false,fontSize: 14)
                     
                     // Create a Reader instance and add it to the database for this user
                     let newlyInsertedReader: Reader = try await supabase
