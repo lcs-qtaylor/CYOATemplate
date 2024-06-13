@@ -13,7 +13,7 @@ struct AppEntryView: View {
     
     // Keeps track of whether the user has been authenticated
     @State var isAuthenticated = false
-    
+    @State private var book = BookStore()
     // MARK: Computed properties
     var body: some View {
         Group {
@@ -30,6 +30,7 @@ struct AppEntryView: View {
                 AuthView()
             }
         }
+        .environment(book)
         .task {
             
             // Monitor authentication state

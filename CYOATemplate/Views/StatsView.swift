@@ -4,28 +4,42 @@
 //
 //  Created by Russell Gordon on 2024-06-02.
 //
-
 import SwiftUI
 
 struct StatsView: View {
     
     // MARK: Stored properties
-    
-    // Whether this view is showing in the sheet right now
     @Binding var showing: Bool
-    
+    @Environment(BookStore.self) var book
+    let viewModel: achievementViewModel
+   
     // MARK: Computed properties
     var body: some View {
+        @Bindable var book = book
         NavigationStack {
             VStack {
-                Text("A total of x pages out of y pages overall have been visited in this story.")
+                if let achievements = viewModel.achievements {
+                    if achievements.isEmpty {
+                        Text("No achievements unlocked yet.")
+                            .padding()
+                    } else {
+                        List(achievements) { achievement in
+                            VStack(alignment: .leading) {
+                                Text(achievement.achievementName)
+                                    .font(.headline)
+                                Text(achievement.achievementDescription)
+                                    .font(.subheadline)
+                            }
+                            .padding()
+                        }
+                    }
+                } else {
+                    ProgressView()
+                }
             }
             .padding()
             .navigationTitle("Statistics")
-            // Toolbar to show buttons for various actions
             .toolbar {
-                
-                // Hide this view
                 ToolbarItem(placement: .automatic) {
                     Button {
                         showing = false
@@ -33,14 +47,12 @@ struct StatsView: View {
                         Text("Done")
                             .bold()
                     }
-
                 }
             }
         }
     }
-    
 }
 
 #Preview {
-    StatsView(showing: Binding.constant(true))
+    StatsView(showing: .constant(true), viewModel: achievementViewModel(book: BookStore()))
 }
