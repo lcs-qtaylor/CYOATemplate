@@ -14,6 +14,7 @@ struct PageView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
+    
     // The view model for the page view
     //
     // Making the view model a constant means
@@ -27,7 +28,7 @@ struct PageView: View {
         
         ZStack {
             
-            LinearGradient(colors: [.black, .red], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [book.primaryColor, book.secondaryColor], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             ScrollView {
@@ -48,7 +49,7 @@ struct PageView: View {
                                 )
                             )
                         )
-                        .foregroundStyle(.red)
+                        .foregroundStyle(book.secondaryColor)
                         .font(Font.custom("Chalkduster", size: CGFloat(book.reader.fontSize)))
                           
                         if let image = page.image {

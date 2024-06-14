@@ -30,7 +30,9 @@ struct SettingsView: View {
         // The user interface
         return NavigationStack {
             
-            VStack {
+            List {
+                
+                //Toggle for dark mode
                 Toggle(isOn: $book.reader.prefersDarkMode) {
                     Label {
                         Text("Dark Mode")
@@ -42,18 +44,25 @@ struct SettingsView: View {
                 // Dropdown picker for font size
                 HStack {
                     Text("Font Size:")
+                    
+                    Spacer()
+                    
                     Picker("Size", selection: $book.reader.fontSize) {
                         ForEach(fontSizes, id: \.self) { size in
                             Text("\(size)").tag(size)
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .frame(maxWidth: 100) // Adjust width as needed
+                    .pickerStyle(.menu)
                 }
-                .padding(.top, 10)
                 
-                Spacer()
+                //color picker for primary
+                ColorPicker("Select Primary Colour", selection: $book.primaryColor, supportsOpacity: false)
+                
+                //color picker for secondary
+                ColorPicker("Select Secondary Colour", selection: $book.secondaryColor, supportsOpacity: false)
+                
             }
+            .listStyle(.plain)
             .padding()
             .navigationTitle("Settings")
             // Toolbar to show buttons for various actions
@@ -75,8 +84,4 @@ struct SettingsView: View {
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
     }
-}
-
-#Preview {
-    SettingsView(showing: Binding.constant(true))
 }
