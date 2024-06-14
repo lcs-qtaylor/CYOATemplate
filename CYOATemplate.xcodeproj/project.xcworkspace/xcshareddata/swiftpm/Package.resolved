@@ -1,5 +1,5 @@
 {
-  "originHash" : "a2b47b975283c007063016d75469b395d89f8763da1d376160fb8c6dcfdb6109",
+  "originHash" : "312e07ecddab5972bf6adbd46feb9299856a3e0c6dea2f2f44e27e4e9298428a",
   "pins" : [
     {
       "identity" : "keychainaccess",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
         "version" : "4.2.2"
+      }
+    },
+    {
+      "identity" : "nvmcolor_swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NVMNovem/NVMColor_swift",
+      "state" : {
+        "revision" : "80cf6140a29a88197f9bee51918843d706dc6034",
+        "version" : "1.2.5"
       }
     },
     {
