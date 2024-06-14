@@ -13,7 +13,6 @@ struct CYOATemplateApp: App {
         WindowGroup {
             AppEntryView()
                 .preferredColorScheme(.dark)
-                
         }
     }
 }
