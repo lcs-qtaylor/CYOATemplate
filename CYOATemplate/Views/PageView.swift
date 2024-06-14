@@ -49,7 +49,7 @@ struct PageView: View {
                             )
                         )
                         .foregroundStyle(.red)
-                        .font(Font.custom("Chalkduster", size: CGFloat(book.reader.fontSize ?? 14)))
+                        .font(Font.custom("Chalkduster", size: CGFloat(book.reader.fontSize)))
                           
                         if let image = page.image {
                             

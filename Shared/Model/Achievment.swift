@@ -9,9 +9,9 @@ import Foundation
 
 struct Achievement: Identifiable, Codable {
     var id: Int
-    var pageId: Int?
-    var achievementName: String?
-    var achievementDescription: String?
+    var pageId: Int
+    var achievementName: String
+    var achievementDescription: String
     
     enum CodingKeys: String, CodingKey {
         case id

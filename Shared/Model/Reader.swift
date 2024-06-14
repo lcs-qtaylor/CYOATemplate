@@ -13,7 +13,7 @@ struct Reader: Identifiable, Codable {
     var name: String?
     var prefersDarkMode: Bool
     var lastPageReadId: Int?
-    var fontSize: Int?
+    var fontSize: Int
     // When decoding and encoding from JSON, translate snake_case
     // column names into camelCase
     enum CodingKeys: String, CodingKey {
