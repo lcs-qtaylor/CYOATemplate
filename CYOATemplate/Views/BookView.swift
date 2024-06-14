@@ -83,15 +83,6 @@ struct BookView: View {
                     }
                     
                 }
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        showingStatsView = true
-                    } label: {
-                        Image(systemName: "circle")
-                            .foregroundColor(.red)
-                    }
-                }
-
             }
             // Show the statistics view
             .sheet(isPresented: $showingStatsView) {
