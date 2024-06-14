@@ -36,7 +36,9 @@ struct SettingsView: View {
         // The user interface
         return NavigationStack {
             
-            VStack {
+            List {
+                
+                //Toggle for dark mode
                 Toggle(isOn: $book.reader.prefersDarkMode) {
                     Label {
                         Text("Dark Mode")
@@ -58,12 +60,15 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.menu)
                 }
-                .padding(.top, 10)
                 
+                //color picker for primary
+                ColorPicker("Select Primary Colour", selection: $primaryColor, supportsOpacity: false)
                 
+                //color picker for secondary
+                ColorPicker("Select Secondary Colour", selection: $secondaryColor, supportsOpacity: false)
                 
-                Spacer()
             }
+            .listStyle(.plain)
             .padding()
             .navigationTitle("Settings")
             // Toolbar to show buttons for various actions
