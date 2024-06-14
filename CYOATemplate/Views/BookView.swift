@@ -121,7 +121,7 @@ struct BookView: View {
         }
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
-
+        
     }
 }
 
