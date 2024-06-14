@@ -8,8 +8,9 @@
 import SwiftUI
 
 @main
+
 struct CYOATemplateApp: App {
-        
+   
     var body: some Scene {
         WindowGroup {
             AppEntryView()

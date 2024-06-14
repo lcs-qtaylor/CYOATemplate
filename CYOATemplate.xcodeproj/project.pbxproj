@@ -35,6 +35,10 @@
 		81C198BF2A251B4D0047A4B3 /* Ending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C198BE2A251B4D0047A4B3 /* Ending.swift */; };
 		81C784AB2A28AD0B001BC867 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C784AA2A28AD0B001BC867 /* PageView.swift */; };
 		81C784AF2A28B4E7001BC867 /* EdgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C784AE2A28B4E7001BC867 /* EdgesView.swift */; };
+		961D07702C18EE7800F987EF /* Achievment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D076F2C18EE7800F987EF /* Achievment.swift */; };
+		961D07712C18EE7800F987EF /* Achievment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D076F2C18EE7800F987EF /* Achievment.swift */; };
+		961D07732C18F8FD00F987EF /* AchievementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D07722C18F8FD00F987EF /* AchievementViewModel.swift */; };
+		961D07742C18F8FD00F987EF /* AchievementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D07722C18F8FD00F987EF /* AchievementViewModel.swift */; };
 		96817AFC2C10B1FA0085F22D /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 96817AFB2C10B1FA0085F22D /* Auth */; };
 		96817AFE2C10B1FA0085F22D /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 96817AFD2C10B1FA0085F22D /* Functions */; };
 		96817B002C10B1FA0085F22D /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 96817AFF2C10B1FA0085F22D /* PostgREST */; };
@@ -89,6 +93,8 @@
 		81C198BE2A251B4D0047A4B3 /* Ending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ending.swift; sourceTree = "<group>"; };
 		81C784AA2A28AD0B001BC867 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		81C784AE2A28B4E7001BC867 /* EdgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesView.swift; sourceTree = "<group>"; };
+		961D076F2C18EE7800F987EF /* Achievment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievment.swift; sourceTree = "<group>"; };
+		961D07722C18F8FD00F987EF /* AchievementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 			children = (
 				812F512E2C0CDC3300C1A270 /* BookStore.swift */,
 				812F513E2C0DC6F800C1A270 /* PageViewModel.swift */,
+				961D07722C18F8FD00F987EF /* AchievementViewModel.swift */,
 				812F51402C0DC94200C1A270 /* EdgesViewModel.swift */,
 			);
 			path = ViewModels;
@@ -229,6 +236,7 @@
 				81C198BC2A251B2B0047A4B3 /* Edge.swift */,
 				81C198BE2A251B4D0047A4B3 /* Ending.swift */,
 				812F513C2C0D0FB500C1A270 /* Reader.swift */,
+				961D076F2C18EE7800F987EF /* Achievment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,11 +380,13 @@
 			files = (
 				812F51552C0DF4DA00C1A270 /* Page.swift in Sources */,
 				812F51562C0DF4DA00C1A270 /* Edge.swift in Sources */,
+				961D07742C18F8FD00F987EF /* AchievementViewModel.swift in Sources */,
 				812F51572C0DF4DA00C1A270 /* Ending.swift in Sources */,
 				812F51582C0DF4DA00C1A270 /* Reader.swift in Sources */,
 				8123CD2B2A34F9C100F9DF1C /* SharedFunctions.swift in Sources */,
 				8123CD292A34F99E00F9DF1C /* StoryInformation.swift in Sources */,
 				8123CD2D2A34FE4800F9DF1C /* DirectedGraphBuilder.swift in Sources */,
+				961D07712C18EE7800F987EF /* Achievment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,8 +399,10 @@
 				81C198BD2A251B2B0047A4B3 /* Edge.swift in Sources */,
 				812F51052C0C9FAD00C1A270 /* Supabase.swift in Sources */,
 				812F51462C0DE6FE00C1A270 /* Enumerations.swift in Sources */,
+				961D07732C18F8FD00F987EF /* AchievementViewModel.swift in Sources */,
 				812F51412C0DC94200C1A270 /* EdgesViewModel.swift in Sources */,
 				81C198A92A251ABB0047A4B3 /* CYOATemplateApp.swift in Sources */,
+				961D07702C18EE7800F987EF /* Achievment.swift in Sources */,
 				812F512F2C0CDC3300C1A270 /* BookStore.swift in Sources */,
 				812F51372C0CF13D00C1A270 /* CoverView.swift in Sources */,
 				812F513F2C0DC6F800C1A270 /* PageViewModel.swift in Sources */,

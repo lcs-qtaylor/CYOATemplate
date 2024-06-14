@@ -22,7 +22,7 @@ struct PageView: View {
     // (which is fed to the initializer of PageViewModel)
     // then PageView will be re-loaded, updating the text
     let viewModel: PageViewModel
-    
+
     // MARK: Computed properties
     var body: some View {
         
