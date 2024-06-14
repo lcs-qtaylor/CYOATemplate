@@ -20,6 +20,12 @@ struct SettingsView: View {
     // Available font sizes
     let fontSizes: [Int] = Array(10...50)
     
+    //Color for the primary color
+    @State private var primaryColor: Color = .black
+    
+    //Color for the secondary color
+    @State private var secondaryColor: Color = .red
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -42,15 +48,19 @@ struct SettingsView: View {
                 // Dropdown picker for font size
                 HStack {
                     Text("Font Size:")
+                    
+                    Spacer()
+                    
                     Picker("Size", selection: $book.reader.fontSize) {
                         ForEach(fontSizes, id: \.self) { size in
                             Text("\(size)").tag(size)
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .frame(maxWidth: 100) // Adjust width as needed
+                    .pickerStyle(.menu)
                 }
                 .padding(.top, 10)
+                
+                
                 
                 Spacer()
             }
