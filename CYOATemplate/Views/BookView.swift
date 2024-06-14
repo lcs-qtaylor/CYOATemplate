@@ -20,12 +20,6 @@ struct BookView: View {
     
     // Whether the settings view is being shown right now
     @State private var showingSettingsView = false
-    
-    //primary color
-    @State var primaryColor: Color = Color.black
-    
-    //secondary color
-    @State var secondaryColor: Color = Color.red
 
     // Track when app is foregrounded, backgrounded, or made inactive
     @Environment(\.scenePhase) var scenePhase
@@ -50,7 +44,7 @@ struct BookView: View {
                     )
                     
                 } else {
-                    CoverView(primaryColor: primaryColor, secondaryColor: secondaryColor)
+                    CoverView()
                 }
                 
             }
@@ -63,7 +57,7 @@ struct BookView: View {
                 // Button to return to the cover page
                 ToolbarItem(placement: .automatic) {
                     Image(systemName: "arrow.left.circle")
-                        .foregroundColor(.red)
+                        .foregroundColor(book.secondaryColor)
                         .onTapGesture {
                             book.showCoverPage()
                         }
@@ -75,7 +69,7 @@ struct BookView: View {
                         showingStatsView = true
                     } label: {
                         Image(systemName: "chart.pie.fill")
-                            .foregroundColor(.red)
+                            .foregroundColor(book.secondaryColor)
                     }
                     
                 }
@@ -86,7 +80,7 @@ struct BookView: View {
                         showingSettingsView = true
                     } label: {
                         Image(systemName: "gear")
-                            .foregroundColor(.red)
+                            .foregroundColor(book.secondaryColor)
                     }
                     
                 }
@@ -98,7 +92,7 @@ struct BookView: View {
             }
             // Show the settings view
             .sheet(isPresented: $showingSettingsView) {
-                SettingsView(showing: $showingSettingsView, primaryColor: $primaryColor, secondaryColor: $secondaryColor)
+                SettingsView(showing: $showingSettingsView)
                 // Make the book state accessible to SettingsView
                     .environment(book)
             }

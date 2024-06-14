@@ -14,11 +14,7 @@ struct EdgesView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
-    //primary color
-    @State var primaryColor: Color = Color.black
-    
-    //secondary color
-    @State var secondaryColor: Color = Color.red
+
     
     // The view model for the page view
     //
@@ -70,22 +66,22 @@ struct EdgesView: View {
                                 )
                             )
                             .multilineTextAlignment(.trailing)
-                            .foregroundStyle(primaryColor)
+                            .foregroundStyle(book.primaryColor)
                             .font(Font.custom("COPPERPLATE", size: 15))
                             
                             Spacer()
                             
                             Image(systemName: "arrow.right")
-                                .foregroundStyle(primaryColor)
+                                .foregroundStyle(book.primaryColor)
                         }
                         .padding()
                         .background {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(secondaryColor)
+                                .fill(book.secondaryColor)
                                 .frame(width: .infinity, height: 50)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(primaryColor, lineWidth: 2))
+                                        .stroke(book.primaryColor, lineWidth: 2))
                         }
                         .onTapGesture {
                             
@@ -139,9 +135,9 @@ struct EdgesView: View {
 
     }
 }
-
-#Preview {
-    EdgesView(
-        viewModel: EdgesViewModel(book: BookStore())
-    )
-}
+//
+//#Preview {
+//    EdgesView(
+//        viewModel: EdgesViewModel(book: BookStore())
+//    )
+//}

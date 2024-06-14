@@ -20,12 +20,6 @@ struct SettingsView: View {
     // Available font sizes
     let fontSizes: [Int] = Array(10...50)
     
-    //Color for the primary color
-    @Binding var primaryColor: Color
-    
-    //Color for the secondary color
-    @Binding var secondaryColor: Color
-    
     // MARK: Computed properties
     var body: some View {
         
@@ -62,10 +56,10 @@ struct SettingsView: View {
                 }
                 
                 //color picker for primary
-                ColorPicker("Select Primary Colour", selection: $primaryColor, supportsOpacity: false)
+                ColorPicker("Select Primary Colour", selection: $book.primaryColor, supportsOpacity: false)
                 
                 //color picker for secondary
-                ColorPicker("Select Secondary Colour", selection: $secondaryColor, supportsOpacity: false)
+                ColorPicker("Select Secondary Colour", selection: $book.secondaryColor, supportsOpacity: false)
                 
             }
             .listStyle(.plain)

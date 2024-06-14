@@ -7,6 +7,7 @@
 
 import Foundation
 import PostgREST
+import SwiftUI
 
 // Stores everything related to tracking current state
 // as the reader reads this CYOA book
@@ -23,6 +24,11 @@ class BookStore: Observable {
     
     // What is the first page of the book?
     private var firstPageId: Int?
+    
+    
+    //Default colors for the primary and secondary
+    var primaryColor: Color = .black
+    var secondaryColor: Color = .red
     
     // MARK: Computed properties
     
