@@ -15,6 +15,8 @@ struct Reader: Identifiable, Codable {
     var prefersDarkMode: Bool
     var lastPageReadId: Int?
     var fontSize: Int
+    var primaryColor: String?
+    var secondaryColor: String?
     // When decoding and encoding from JSON, translate snake_case
     // column names into camelCase
     enum CodingKeys: String, CodingKey {
@@ -23,6 +25,8 @@ struct Reader: Identifiable, Codable {
         case prefersDarkMode = "prefers_dark_mode"
         case lastPageReadId = "last_page_read_id"
         case fontSize = "font_size"
+        case primaryColor = "primary_color"
+        case secondaryColor = "secondary_color"
     }
     
 }

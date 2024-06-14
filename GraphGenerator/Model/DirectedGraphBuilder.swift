@@ -17,10 +17,10 @@ struct DirectedGraphBuilder {
 
         // Attempt to open the database
         // TODO: 1 - Replace details of this instance of StoryInformation with data for your own group's story
-        let storyInfo = StoryInformation(title: "Journey Under The Sea",
-                                         authorOrAuthors: "R.A. Montgomery",
-                                         seriesInfo: "CHOOSE YOUR OWN ADVENTURE #2",
-                                         publisherInfo: "Chooseco LLC, Waitsfield, Vermont, 2006")
+        let storyInfo = StoryInformation(title: "Secrets In The Halls",
+                                         authorOrAuthors: "J Hui, L Kang, Q Taylor",
+                                         seriesInfo: "CHOOSE YOUR OWN ADVENTURE STORY",
+                                         publisherInfo: "Lakefield College School, 2024")
         
         // TODO: 2 - Replace details of this instance of SupabaseClient with settings for your group's database
         let supabase = SupabaseClient(

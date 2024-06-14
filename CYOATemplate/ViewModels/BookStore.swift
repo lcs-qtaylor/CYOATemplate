@@ -8,6 +8,7 @@
 import Foundation
 import PostgREST
 import SwiftUI
+import NVMColor
 
 // Stores everything related to tracking current state
 // as the reader reads this CYOA book
@@ -29,6 +30,16 @@ class BookStore: Observable {
     //Default colors for the primary and secondary
     var primaryColor: Color = .black
     var secondaryColor: Color = .red
+    
+    //Hex value of primary color
+    var hexPrimary: String {
+        return String(primaryColor.hex?.isHex()?.dropLast(2) ?? "000000")
+    }
+    
+    //Hex vaule of secondary color
+    var hexSecondary: String {
+        return String(secondaryColor.hex?.isHex()?.dropLast(2) ?? "FF2C17")
+    }
     
     // MARK: Computed properties
     
@@ -106,6 +117,9 @@ class BookStore: Observable {
                 .value
             
             self.reader = result
+            
+            self.primaryColor = Color(hex: result.primaryColor ?? "000000")!
+            self.secondaryColor = Color(hex: result.secondaryColor ?? "FF2C17")!
             
             // When prior state doesn't know what page was last read read, set first page of book
             // NOTE: This shouldn't really ever happen, but might occur during testing.
@@ -194,6 +208,8 @@ class BookStore: Observable {
         
         // Save current page
         self.reader.lastPageReadId = self.currentPageId
+        self.reader.primaryColor = self.hexPrimary
+        self.reader.secondaryColor = self.hexSecondary
         
         // Update in the database
         Task {
