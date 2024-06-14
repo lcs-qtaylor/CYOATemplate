@@ -21,10 +21,10 @@ struct SettingsView: View {
     let fontSizes: [Int] = Array(10...50)
     
     //Color for the primary color
-    @State private var primaryColor: Color = .black
+    @Binding var primaryColor: Color
     
     //Color for the secondary color
-    @State private var secondaryColor: Color = .red
+    @Binding var secondaryColor: Color
     
     // MARK: Computed properties
     var body: some View {
@@ -90,8 +90,4 @@ struct SettingsView: View {
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
     }
-}
-
-#Preview {
-    SettingsView(showing: Binding.constant(true))
 }

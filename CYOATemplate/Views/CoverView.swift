@@ -14,11 +14,17 @@ struct CoverView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
+    //primary color
+    @State var primaryColor: Color = .black
+    
+    //secondary color
+    @State var secondaryColor: Color = .red
+    
     // MARK: Computed properties
     var body: some View {
         ZStack {
             
-            LinearGradient(colors: [.black, .red], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [primaryColor, secondaryColor], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack {
@@ -32,7 +38,7 @@ struct CoverView: View {
                     // Show the cover
                     Text("Secrets in the Halls")
                         .font(Font.custom("Chalkduster", size: 50))
-                        .foregroundColor(Color.red)
+                        .foregroundColor(secondaryColor)
                     
                     Button("Begin The Adventure!") {
                         // Animate page changes (fade)
@@ -40,8 +46,8 @@ struct CoverView: View {
                             book.beginReading()
                         }
                     }
-                    .tint(.red)
-                    .foregroundStyle(.black)
+                    .tint(secondaryColor)
+                    .foregroundStyle(primaryColor)
                     .font(Font.custom("Chalkduster", size: 20))
                     .buttonStyle(.borderedProminent)
                 }
