@@ -17,27 +17,27 @@ struct BookView: View {
     
     // Whether the statistics view is being shown right now
     @State private var showingStatsView = false
-
+    
     // Whether the settings view is being shown right now
     @State private var showingSettingsView = false
-    
+
     // Track when app is foregrounded, backgrounded, or made inactive
     @Environment(\.scenePhase) var scenePhase
-
+    
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
             
             VStack {
-
+                
                 if book.isBeingRead {
                     
-//                    HStack {
-//                        Text("\(book.currentPageId!)")
-//                            .font(.largeTitle)
-//                        Spacer()
-//                    }
-//                    .padding()
+                    //                    HStack {
+                    //                        Text("\(book.currentPageId!)")
+                    //                            .font(.largeTitle)
+                    //                        Spacer()
+                    //                    }
+                    //                    .padding()
                     
                     PageView(
                         viewModel: PageViewModel(book: book)
@@ -46,7 +46,7 @@ struct BookView: View {
                 } else {
                     CoverView()
                 }
-
+                
             }
             // Add our object to track state into the environment
             // so it is accessible to the other views in the app
@@ -57,10 +57,21 @@ struct BookView: View {
                 // Button to return to the cover page
                 ToolbarItem(placement: .automatic) {
                     Image(systemName: "arrow.left.circle")
-                        .foregroundColor(.red)
+                        .foregroundColor(book.secondaryColor)
                         .onTapGesture {
                             book.showCoverPage()
                         }
+                }
+                
+                // Show the statistics view
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        showingStatsView = true
+                    } label: {
+                        Image(systemName: "chart.pie.fill")
+                            .foregroundColor(book.secondaryColor)
+                    }
+                    
                 }
                 
                 // Show the settings view
@@ -69,11 +80,11 @@ struct BookView: View {
                         showingSettingsView = true
                     } label: {
                         Image(systemName: "gear")
-                            .foregroundColor(.red)
+                            .foregroundColor(book.secondaryColor)
                     }
-
+                    
                 }
-
+                
             }
             // Show the statistics view
             .sheet(isPresented: $showingStatsView) {
@@ -82,7 +93,7 @@ struct BookView: View {
             // Show the settings view
             .sheet(isPresented: $showingSettingsView) {
                 SettingsView(showing: $showingSettingsView)
-                    // Make the book state accessible to SettingsView
+                // Make the book state accessible to SettingsView
                     .environment(book)
             }
             // Respond when app is backgrounded, foregrounded, or made inactive
@@ -103,11 +114,11 @@ struct BookView: View {
                     print("Background")
                 }
             }
-
+            
         }
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
-
+        
     }
 }
 
