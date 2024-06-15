@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SettingsView: View {
     
     // MARK: Stored properties
+    @State var creepySoundEffect: AVAudioPlayer? = nil
+    @State private var isMusicPlaying = true
     
     // Whether this view is showing in the sheet right now
     @Binding var showing: Bool
@@ -40,6 +43,25 @@ struct SettingsView: View {
                         Image(systemName: "moonphase.first.quarter")
                     }
                 }
+                Toggle("Music Off", isOn: $isMusicPlaying)
+                    .onChange(of: isMusicPlaying) { newValue, _ in
+                        if newValue {
+                            // Play the sound
+                            let path = Bundle.main.path(forResource: "scary-ambience-5-traullis-215938.mp3", ofType: nil)!
+                            let url = URL(fileURLWithPath: path)
+                            
+                            do {
+                                creepySoundEffect = try AVAudioPlayer(contentsOf: url)
+                                creepySoundEffect?.play()
+                            } catch {
+                                // Handle error
+                                print("Couldn't load audio file:", error)
+                            }
+                        } else {// Stop the sound
+                            creepySoundEffect?.stop()
+                        }
+                    }
+                
                 
                 // Dropdown picker for font size
                 HStack {
@@ -76,10 +98,10 @@ struct SettingsView: View {
                         Text("Done")
                             .bold()
                     }
-
+                    
                 }
             }
-
+            
         }
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)

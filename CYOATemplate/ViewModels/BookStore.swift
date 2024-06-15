@@ -18,7 +18,7 @@ class BookStore: Observable {
     
     // Preserves preferences and state for the current reader of this book
     var reader: Reader
-    var achievement: Achievement?
+    var achievement: Achievement
     // What is the current page being read?
     var currentPageId: Int?
     var pageId: Int?
@@ -78,7 +78,7 @@ class BookStore: Observable {
     // MARK: Initializer(s)
     init() {
         self.reader = Reader(prefersDarkMode: false, fontSize: 14)
-        self.achievement = nil
+        self.achievement = Achievement(id: 1, pageId: 1, achievementName: "", achievementDescription: "")
         Task {
             try await self.restoreState()
         }

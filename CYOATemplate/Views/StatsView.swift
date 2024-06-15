@@ -23,6 +23,7 @@ struct StatsView: View {
                         Text("No achievements unlocked yet.")
                             .padding()
                     } else {
+                    
                         List(achievements) { achievement in
                             VStack(alignment: .leading) {
                                 Text(achievement.achievementName)
