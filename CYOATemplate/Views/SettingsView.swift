@@ -47,17 +47,21 @@ struct SettingsView: View {
                     .onChange(of: isMusicPlaying) { newValue, _ in
                         if newValue {
                             // Play the sound
-                            let path = Bundle.main.path(forResource: "scary-ambience-5-traullis-215938.mp3", ofType: nil)!
-                            let url = URL(fileURLWithPath: path)
-                            
-                            do {
-                                creepySoundEffect = try AVAudioPlayer(contentsOf: url)
-                                creepySoundEffect?.play()
-                            } catch {
-                                // Handle error
-                                print("Couldn't load audio file:", error)
+                            if let path = Bundle.main.path(forResource: "scary-ambience-5-traullis-215938.mp3", ofType: nil) {
+                                let url = URL(fileURLWithPath: path)
+                                
+                                do {
+                                    creepySoundEffect = try AVAudioPlayer(contentsOf: url)
+                                    creepySoundEffect?.play()
+                                } catch {
+                                    // Handle error
+                                    print("Couldn't load audio file:", error)
+                                }
+                            } else {
+                                print("Audio file not found")
                             }
-                        } else {// Stop the sound
+                        } else {
+                            // Stop the sound
                             creepySoundEffect?.stop()
                         }
                     }
