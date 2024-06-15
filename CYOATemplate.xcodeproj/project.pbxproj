@@ -51,6 +51,7 @@
 		96817B0E2C10B29B0085F22D /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B0D2C10B29B0085F22D /* Realtime */; };
 		96817B102C10B29B0085F22D /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B0F2C10B29B0085F22D /* Storage */; };
 		96817B122C10B29B0085F22D /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 96817B112C10B29B0085F22D /* Supabase */; };
+		B9B4FA1B2C1CCCA600AC52E4 /* NVMColor in Frameworks */ = {isa = PBXBuildFile; productRef = B9B4FA1A2C1CCCA600AC52E4 /* NVMColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B4FA1B2C1CCCA600AC52E4 /* NVMColor in Frameworks */,
 				96817B002C10B1FA0085F22D /* PostgREST in Frameworks */,
 				96817AFE2C10B1FA0085F22D /* Functions in Frameworks */,
 				96817B062C10B1FA0085F22D /* Supabase in Frameworks */,
@@ -312,6 +314,7 @@
 				96817B012C10B1FA0085F22D /* Realtime */,
 				96817B032C10B1FA0085F22D /* Storage */,
 				96817B052C10B1FA0085F22D /* Supabase */,
+				B9B4FA1A2C1CCCA600AC52E4 /* NVMColor */,
 			);
 			productName = CYOATemplate;
 			productReference = 81C198A52A251ABB0047A4B3 /* CYOATemplate.app */;
@@ -346,6 +349,7 @@
 			mainGroup = 81C1989C2A251ABB0047A4B3;
 			packageReferences = (
 				96817AFA2C10B1FA0085F22D /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				B9B4FA192C1CCCA600AC52E4 /* XCRemoteSwiftPackageReference "NVMColor_swift" */,
 			);
 			productRefGroup = 81C198A62A251ABB0047A4B3 /* Products */;
 			projectDirPath = "";
@@ -662,6 +666,14 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		B9B4FA192C1CCCA600AC52E4 /* XCRemoteSwiftPackageReference "NVMColor_swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NVMNovem/NVMColor_swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -724,6 +736,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96817AFA2C10B1FA0085F22D /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		B9B4FA1A2C1CCCA600AC52E4 /* NVMColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B4FA192C1CCCA600AC52E4 /* XCRemoteSwiftPackageReference "NVMColor_swift" */;
+			productName = NVMColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
